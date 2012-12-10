@@ -1,0 +1,425 @@
+* Emacs Grundlagen Workshop
+  
+  Herzlich Willkommen!!
+ 
+  [[file:pics/emacs_logo_no_border.png]]
+* Disclaimer
+  - Für den vi-Workshop bitte das Zimmer verlassen!
+
+    [[file:pics/vi-emacs2.jpg]]
+
+
+* Ziele des Workshops
+  - Grundlagen vermitteln ;)
+  - Ihr solltet nachher eine "für den Anfang" ordentlich konfigurierte Emacs Installation haben
+  - Hilfe zur Selbsthilfe
+  - Gerne auch Diskussion über Emacs Mode, Features und Arbeitsweisen
+  - Vielleicht Start für einen allgemeinen Emacs Austausch
+  - Möglichst keine Forntalbeschallung
+  - Präsi ist mehr als roter Faden zu verstehen
+  - Wir können auch was ganz anderes machen!
+
+* Was tun wenn ihr euch langweilt!?
+  - Ich gehe von sehr gemischtem Vorwissen aus
+  - Wenn ihr alle Emacs könnt, reden wir einfach darüber was cool an ihm ist ;)
+  - Sonst können die erfahrenen User einfach:
+    - die Seite unter: TODO editieren
+    - mich korrigieren
+    - coole Sachen die ich nicht erwähne vorstellen
+    - Tips aus eurer Erfahrung geben
+      
+* Initiale Vorbereitung
+  - Workshop baut auf dem "reinen" Emacs auf, den es hier gibt:
+    - [[http:http://emacsformacosx.com][Emacs for Mac User]]
+    - [[http://ftp.gnu.org/pub/gnu/emacs/][Emacs für alle anderen]]
+  - Alles wichtige findet ihr in folgendem Repo: TODO
+
+    Der Link ist auch im Wiki unter: TODO
+  - Allgemeiner Ablauf: 
+    -  TODO
+
+* Meine Emacs Historie
+  - Emacs User seit etwas über einem Jahr
+  - initiale Motivation: Betriebssystem Unabhängigkeit, ständigen Task-Switch vermeiden, Langeweile ;)
+  - Ich benutze Emacs: 
+    - für kurze scripts
+    - als Finder Ersatz => Dired(+)
+    - als Terminal Ersatz => Shells
+    - als Todo Manager => Org-Mode
+
+
+* Emacs - Eine kurze Geschichte der Zeit - 
+  - 1976 als Sammlung von Makros für TECO am MIT entstanden
+    Akronym EMACS steht für "Editor MACroS"
+  - 1978/79 portiert Bernard Greenberg den Editor auf Multics (Großrechner) mittels Maclisp.
+  - 1981 schrieb James Gosling den ersten Emacs für Unix Systeme in C
+  - 1984 entsteht GNU EMACS!
+    - erstes GNU Projekt 
+    - gesschrieben in C und Elisp
+    - Elisp Interpreter (und damit auch der Kern von EMACS) ist in C geschrieben
+    - alle höheren Funtkionen und Erweiterungen in Elips
+  - aktuelle Version: 24
+  - es gibt mehrere Derivate:
+    - Aquamacs (Protierung für  MacOS)
+    - XEmacs (frühe Gui Komponenten)
+    - Zile (leichtgewichtig)
+    - Carbon Emacs (Portierung für MacOS)
+  
+  Emacs ist mittlerweile auch eine eigene Religion:
+  [[file:pics/saintignucius.jpg]]
+
+  * entnommen von Wikipedia
+    
+* Features  von Emacs
+  - Sehr guter Texteditor (außer für vi User)
+    
+    /„Emacs is a great operating system – it lacks a good editor, though.“/
+    Thomer M. Gil
+    
+  - vollkommen mit der Tastatur bedienbar
+  - läuft sowohl mit Gui als auch in der Shell
+  - Alles unter einem Dach
+  - beliebig erweiter-/programmierbar
+  - Unterstützung praktisch aller Programmiersprachen
+  - super für Lisp (wenn man es denn kann ;))
+  - man muss ihn eigentlich nie neu starten
+  - sehr gute und integrierte Dokumentation
+  - er kann Tetris
+
+    [[file:pics/emacs_knight.jpg]]
+
+* Emacs Special Keys 
+  - Allgemein:  Die Maus ist böse! (Pfeiltasten eigentlich auch)
+    Also sollte man sie nicht benutzen!
+ 
+    Emacs wird über Meta Keys und Tastenkombinationen gesteuert 
+    Emacs besitzt keine Modes, sondern lediglich 2 meta Keys und einen Haufen von Tastenkombis
+
+  - Control Key: "C"
+    Sollte man am besten auf "Umschalt" legen
+
+  - Meta: "M" 
+
+  - Schreibweisen für Tastenkürzel
+    
+    C-x C-s: Halte "Control" gedrückt und tippe "x" "s"
+    C-x d: Halte "Control" gedrückt und tippe "x", lasse Control los und tippe d
+
+* Das Wichtigste
+  - Abort!
+    
+    C-g
+
+    Die aktuelle Funktion wird beendet.
+    Der Lebensretter ;) 
+
+  - Exit!
+
+    C-x/C-c
+
+    Emacs verlassen, es wird gefragt ob Proozesse geschlossen und Files gespeichert werden sollen.
+
+  - Command!
+
+    M-x
+
+    Öffnet die Befehlseingabe im Minibuffer. Der eingegebene Befehl wird mit RET ausgeführt.
+
+* Allgemeiner Aufbau
+  
+  [[file:pics/emacs-layout.jpg]]
+
+* Frames und Windows
+  - Ein [[info:emacs#Frames][Frames]] ist ein grafisches Fenster des Betriebssystems
+    
+    Commands  für neue Frames
+    - C-x 5 2 /make-frame-command/ : neuer Frame
+    - etc. s. Hilfe System
+
+    => ich benutze eigentlich immer nur einen Frame
+
+
+  - Ein Window ist die Unterteilung eines Frames
+    
+    C-x 1: lösche alle anderen Windows
+    C-x 2: unterteile den Frame horizontal
+    C-x 3: unterteile den Frame vertikal
+    
+    C-x o: gehe in das andere Windows
+
+    dazu gibt es noch ettliche run in other window commands
+ 
+    *Customize*
+    - [[file:~/.emacs::%3B%3B%20switch%20windows%20with%20shift%20and%20arrow%20keys][file:~/.emacs::;; switch windows with shift and arrow keys]]
+
+* Buffer and Files  
+  - [[info:emacs#Buffers][Buffers]]
+  - Wichtig: Buffers != Files
+
+    C-x b: selektiere einen anderen Buffer
+    C-x C-b: liste alle buffer auf
+    C-x k: kille den ausgewählten buffer
+
+    Buffer habe immer einen unique name => Emacs nenennt bei Namensgleichheit automatisch um (#2 etc.)
+
+  - [[info:emacs#Minibuffer][Minibuffer]]
+    - Listest die Befehle und deren Ergebnisse auf
+    - Verhält sich ansonsten wie ein normaler Buffer
+    - Completion mitterls TAB möglich
+    - doppel TAB oder ? liefern eine Liste aller möglichen Vervollständigungen
+
+  - [[info:emacs#Files][Files]]
+    
+    C-x C-f: öffne ein File
+            - / fängt immer beim root an
+	    - ~/ fängt immer im home Verzeichnis an
+
+    C-x C-s: speichere das aktuelle File
+    C-x s: Speichere alle Files
+    C-x C-v: Ersetze das File durch ein anderes (aktualisiere)
+
+    
+
+    *Customize*
+    - ido mode
+
+* Modes
+  Modes regel das allegemeine Verhalten des Buffers:
+  - Welche Tastenkürzel es gibt,
+  - Welche indentation angewand werden soll,
+  - das Syntax highlighting
+  - etc.
+
+  - Jeder Buffer besitzt einen [[info:emacs#Major%20Modes][Major Mode]] und eine beliebige Anzahl von optinalen  [[info:emacs#Minor%20Modes][Minor Modes]]
+
+  Beispiele für Major Modes:
+  1) Fundamental Mode
+  2) Org-Mode
+  3) Java-Mode
+  4) etc.   
+
+  - Ändern des Modes (oder Hinzufügen von weiteren Minor Modes) mittels: M-x 'MODE_NAME'
+
+* Emacs Help System
+  Emacs besitzt eine sehr umfangreiche und in den Editor integrierte Dokumentation/Hilfe
+
+  C-h ?: Betrete das Hilfe System
+  C-h c: Beschreibe den Key (welche Funktion ist auf ihn gebindet)
+  C-h f: Beschreibe die Funktion
+  C-h m: Beschreibe den Mode
+  C-h t: Tutorial
+  C-h r: Manual
+
+  C-h i: Info
+
+  M-x apropos: Suche nach Übereinstimmungen
+
+  [[file:pics/Computer-Science-Help-Center.jpg]]
+
+* Moving
+  Harte Geeks benutzen keine Pfeiltasten (oder versuchen es ;))
+
+  C-a	move cursor to (at) beginning-of-line
+  C-e	move cursor to end-of-line
+  C-f	move cursor forward one character
+  C-b	move cursor backward one character
+  C-n	move cursor to next line
+  C-p	move cursor to previous line
+  C-v	scroll file forward by one screenful
+  M-v	scroll file backward by one screenful
+  M-<   go to beginning-of-buffer
+  M->	go to end-of-buffer
+  M-f	move cursor forward one word
+  M-b	move cursor backward one word
+  
+  Tip: Die Suche ist das schnellere move
+  
+  *Customize*
+  - ace-jump-mode
+
+* Selecting Text
+  Viele Emacs Command arbeiten auf einem selektierten Bereich eines Buffers
+
+** Mark und Point
+   - Selektiert wird jeweils der Bereich zwischen dem Mark und dem Point.
+   - Der Mark wir hierbei gesetzt mittels C-<SPC>. Der Point ist jeweils die Position des Cursors.
+   - Der ausgewählte Bereich wird als region bezeichnet
+   - Shift geht auch ;)
+
+   C-x C-x tausche Mark und Point 
+   C-g selektieren abbrechen
+   C-x h selektiere den ganzen Buffer
+
+   *Customize*
+   - expand-region
+
+* Killing und Yanking
+
+** Killing
+  Das Entfernen von Text wird in Emacs als killing bezeichnet.
+
+  C-w kille region => ausschneiden
+  C-k kille bis zum Ende der line
+  M-d kille das nächste Wort
+  M-DEL kille das vorherige Word
+  C-d kille den nächsten Buchstaben
+  DEL geht auch ;)
+
+  Jeder auf einmal entfernte Text landet als ein Eintrag im kill-ring.
+  
+  M-w: kopiert die region in den kill-ring => praktisch das copy des Emacs
+  
+** Yanking
+   Das Einfügen eines Elementes des kill-rings an die aktuelle Stelle wird als yanking bezeichnet
+
+   C-y füge das letzte Element des kill-rings ein
+   M-y ersetzt den letzten yank mit dem nächsten Element aus dem kill-ring
+   
+   Es ist damit möglich durch den kill-ring zu navigieren.
+  
+  *Customize* 
+  - cua-mode
+
+* Undo 
+  
+  Es wird ein undo unterstützt mittels:
+  C-x u
+
+  Tip: anders binden (ist für den häufigen Command zu mühsam)
+
+  *Customize*
+  - undo tree mode
+
+* Customization
+  Man sollte den Emacs immer weiter an seine Bedürfnisse anpassen (schärfe dein Werkzeug ;)).
+ 
+**  Customize System
+  Emacs bietet ein System zur Customization: M-x customize
+  
+  => ich benutze eigentlich immer die init Files
+
+  Emacs läd beim Start folgende Files:
+  1. ~/.emacs
+  2. ~/.emacs.el
+  3. ~/.emacs.d/init.el
+  
+  Tip: .emacs.d anlegen und alle emacs bezogenen Files hierunter speichern.
+
+**  Init Files
+  - Sind einfache ELisp Files
+  - Werden beim Start von EMACS ausgeführt
+  - zählen damit zu den .dot Files (wie z.B. bashrc)
+  - können bei einer laufenden Emacs Instanz ausgeführt werden mittels: M-x eval-buffer
+
+  Lets Customize:
+  - Sounds
+  - Menu-Bar und Toolbars
+  - Keys
+  - Themes
+  - Linum Mode
+
+** Binden
+   TODO
+
+** Package Manager
+   Emacs bietet einen eigenen Package Manager und es gibt Marmalede!
+   
+   M-x package-list-packages
+   
+   Kümmert sich um den load-path und das herunterladen
+
+* Searching in Emacs 
+
+  Emacs unterstützt umfangreiche Suchen/Ersetzen Funktionen.
+
+  Hier die Basics:
+  C-s	/isearch-forward/: InkrementelleVorwärtssuche nach der Eingabe. RET => Ende 
+  C-r	/isearch-backward/: inkrementelle Rückwertssuche.
+  C-M-s /isearch-forward-regexp/: Inkrementelle regex Suche (vorwärts).
+  C-M-r /isearch-backward-regexp/: Inkrementelle regex Suche (rückwärts).
+
+  Occur:
+  Findet alle Vorkommen in den geöffneten Buffern und ermöglicht ein schnelles springen an die jweilige Stelle
+  
+  M-s o: occur
+
+  Direkte Unterstützung von find:
+  - find-dired
+  - find-grep
+  - find-name-dired
+
+  Direkte Unterstützung von grep
+  - grep
+  - grep-find
+
+* Dired
+  Der Finder/Explorer von Emacs
+
+  C-x d: open dired
+  C-x f: open file auf ein dir
+
+  Unterstützt: 
+  - Umbenennen mehrerer files: M-x wdired-change-to-wdired-mode
+  - Verschieben von ganzen Verzeichnissen
+  - (rekursives) löschen
+
+   m: change mode
+   d: delete file/dir
+   +: neues dir erzeugen
+   &: async command auf File ausführen
+   !: command on file
+   M: mark file
+   ^: parent dir
+   i: folder inhalt einfügen
+   o: open in other window
+   v: visit file
+   %-m: mark files regex
+
+  *Customize*
+   - Dired+ installieren
+   - Files zwischen Buffern kopieren
+   - Open with Mac
+
+* Shells
+
+** Shells innerhalb von Emacs
+  Emacs bietet Support für 3 verschiedene shells
+  - eshell: in Elisp implementierte Shell M-x eshell
+  - shell: interaktive shell M-x shell
+  - term: terminal emulation M-x term 
+
+  Tip: Eshell wenn man Elips kann (ist dann sehr mächtig). Sonst die interaktive shell. Term ist in Emacs unschön zu bedienen
+
+  *Customize*
+  - smex
+
+** Einmal Shell Commands
+   
+   M-!: Einmal Shell Command => Ergebnis im Minibuffer
+   M-&: Async einmal Shell Command
+   M-|: Shell Command on region
+
+* Reguläre Ausdrücke
+  Emacs bietet eine sehr umfangreiche Unterstützung von regulären Ausdrücken
+  
+  - es wird allerdings *nicht* die Perl Syntax unterstützt.
+    Z.B. müssen capturing groups escaped werden, oder es fehlt \d
+
+  Tip: re-builder verwenden
+
+
+* Weiteres
+  Weitere wichtige Themen die ich nicht vorbereitet habe, die wir aber durchghen können ;)
+
+** Macros 
+**  Rectangles
+** Tramp
+** Magit
+** Org-Mode
+** Bookmarks
+** W3
+** Emacs Server
+** Indentation
+** Alignment
+** Spelling
+** Elips programming
