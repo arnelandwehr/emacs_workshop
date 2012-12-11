@@ -23,7 +23,7 @@
   - Ich gehe von sehr gemischtem Vorwissen aus
   - Wenn ihr alle Emacs könnt, reden wir einfach darüber was cool an ihm ist ;)
   - Sonst können die erfahrenen User einfach:
-    - die Seite unter: TODO editieren
+    - die Seite unter: [[http:https://wiki.innoq.com/display/innoq/Emacs][https://wiki.innoq.com/display/innoq/Emacs]] editieren
     - mich korrigieren
     - coole Sachen die ich nicht erwähne vorstellen
     - Tips aus eurer Erfahrung geben
@@ -32,20 +32,13 @@
   - Workshop baut auf dem "reinen" Emacs auf, den es hier gibt:
     - [[http:http://emacsformacosx.com][Emacs for Mac User]]
     - [[http://ftp.gnu.org/pub/gnu/emacs/][Emacs für alle anderen]]
-  - Alles wichtige findet ihr in folgendem Repo: TODO
+  - Alles wichtige findet ihr in folgendem Repo: [[http:https://github.com/arnelandwehr/emacs_workshop][https://github.com/arnelandwehr/emacs_workshop]]
 
-    Der Link ist auch im Wiki unter: TODO
-  - Allgemeiner Ablauf: 
-    -  TODO
-
-* Meine Emacs Historie
-  - Emacs User seit etwas über einem Jahr
-  - initiale Motivation: Betriebssystem Unabhängigkeit, ständigen Task-Switch vermeiden, Langeweile ;)
-  - Ich benutze Emacs: 
-    - für kurze scripts
-    - als Finder Ersatz => Dired(+)
-    - als Terminal Ersatz => Shells
-    - als Todo Manager => Org-Mode
+    Der Link ist auch im Wiki unter: [[http:https://wiki.innoq.com/display/innoq/EMACS%2BGrundlagen][https://wiki.innoq.com/display/innoq/EMACS+Grundlagen]]
+ ** Allgemeiner Ablauf: 
+    - Wir gehen die Grundlagen durch
+    - Wir erweitern den "rohen" Emacs um ein paar must haves (mehr oder weniger ;))
+    - Wir machen das was euch interessiert
 
 
 * Emacs - Eine kurze Geschichte der Zeit - 
@@ -70,6 +63,16 @@
 
   * entnommen von Wikipedia
     
+* Meine Emacs Historie
+  - Emacs User seit etwas über einem Jahr
+  - initiale Motivation: Betriebssystem Unabhängigkeit, ständigen Task-Switch vermeiden, Langeweile ;)
+  - Ich benutze Emacs: 
+    - für kurze scripts
+    - als Finder Ersatz => Dired(+)
+    - als Terminal Ersatz => Shells
+    - als Todo Manager => Org-Mode
+    
+
 * Features  von Emacs
   - Sehr guter Texteditor (außer für vi User)
     
@@ -238,7 +241,7 @@
   - ace-jump-mode
 
 * Selecting Text
-  Viele Emacs Command arbeiten auf einem selektierten Bereich eines Buffers
+  Viele Emacs Commands arbeiten auf einem selektierten Bereich eines Buffers
 
 ** Mark und Point
    - Selektiert wird jeweils der Bereich zwischen dem Mark und dem Point.
@@ -293,7 +296,7 @@
 * Customization
   Man sollte den Emacs immer weiter an seine Bedürfnisse anpassen (schärfe dein Werkzeug ;)).
  
-**  Customize System
+** Customize System
   Emacs bietet ein System zur Customization: M-x customize
   
   => ich benutze eigentlich immer die init Files
@@ -305,7 +308,7 @@
   
   Tip: .emacs.d anlegen und alle emacs bezogenen Files hierunter speichern.
 
-**  Init Files
+** Init Files
   - Sind einfache ELisp Files
   - Werden beim Start von EMACS ausgeführt
   - zählen damit zu den .dot Files (wie z.B. bashrc)
@@ -319,7 +322,24 @@
   - Linum Mode
 
 ** Binden
-   TODO
+   
+   Man kann die key bindings sowohl global als auch auf mode Ebene anpassen (bestimmt acuh noch feiner...)
+   Hierzu jeweils Einträge im ini File vornehmen
+
+   - Global anpassen über:
+     (global-set-key (kbd "C-z") 'shell)
+
+   - bei non ASCII Zeichen:
+     (global-set-key [?\C-=] 'make-symbolic-link)
+
+   - bei den Mode muss jweils dem hook eine Funktion mitgegeben werden:
+     (add-hook 'texinfo-mode-hook
+               '(lambda ()
+                  (define-key texinfo-mode-map "\C-cp"
+                              'backward-paragraph)
+                  (define-key texinfo-mode-map "\C-cn"
+                              'forward-paragraph)))
+
 
 ** Package Manager
    Emacs bietet einen eigenen Package Manager und es gibt Marmalede!
