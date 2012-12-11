@@ -432,10 +432,10 @@
   Weitere wichtige Themen die ich nicht vorbereitet habe, die wir aber durchghen können ;)
 
 ** Macros 
-**  Rectangles
+** Rectangles
 ** Tramp
 ** Magit
-** Org-Mode
+** [#B] Org-Mode
 ** Bookmarks
 ** W3
 ** Emacs Server
