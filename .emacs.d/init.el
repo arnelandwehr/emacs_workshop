@@ -43,13 +43,13 @@
 
 
 ;; ---------- Package Manager ----------
+;(require 'package)
+;(add-to-list 'package-archives 
+;    '("marmalade" .
+;      "http://marmalade-repo.org/packages/"))
+;(package-initialize)
 
-;; Add the original Emacs Lisp Package Archive
-;(add-to-list 'package-archives
-;             '("elpa" . "http://tromey.com/elpa/"))
-;; Add the user-contributed reository
-;(add-to-list 'package-archives
-;            '("marmalade" . "http://marmalade-repo.org/packages/"))
+
 
 ;; ---------- Dired ----------
 ;; copy to other dire buffer
